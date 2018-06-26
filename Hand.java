@@ -4,8 +4,8 @@ public class Hand {
 
     private LinkedList<Animal> cards;
 
-    public Hand(int size) {
-        cards = new LinkedList<>(size);
+    public Hand() {
+        cards = new LinkedList<>();
     }
 
     public Animal getCard() {
