@@ -43,8 +43,8 @@ public class Animal {
 
     public String toString() {
         String line = "-----------------------------------------------";
-        return String.format("%.25s \n| %-21s |\n%.25s \n| Size: %12.2f cm |"
-        + "\n| Weight: %10.2f kg |\n| Top speed: %6.2f kph |\n| Life span: %4.0f years |"
-        + " \n%.25s", line, name.toUpperCase(), line, size, weight, speed, lifeSpan, line);
+        return String.format("%.29s \n| %-25s |\n%.29s \n| (1) Size: %12.2f cm |"
+        + "\n| (2) Weight: %10.2f kg |\n| (3) Top speed: %6.2f kph |\n| (4) Life span: %4.0f years |"
+        + " \n%.29s", line, name.toUpperCase(), line, size, weight, speed, lifeSpan, line);
     }
 }
