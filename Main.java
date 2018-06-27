@@ -25,7 +25,7 @@ public class Main {
     }  
 
     private void addCompPlayers(int humanPlayersCount) {
-        for (int i = 0; i < players.size()- humanPlayersCount; i++){
+        for (int i = 0; i < playersCount - humanPlayersCount; i++){
             String botName = inputGetter.getStringFromUser("Provide bot name");
             players.add(new CompPlayer(botName));
         }
