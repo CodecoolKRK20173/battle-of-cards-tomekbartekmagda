@@ -45,6 +45,6 @@ public abstract class Player implements Comparable<Player> {
 
     @Override
     public int compareTo(Player otherPlayer) {
-        return this.getHandSize().compareTo(otherPlayer.getHandSize());
+        return new Integer(this.getHandSize()).compareTo(new Integer(otherPlayer.getHandSize()));
     }
 }
