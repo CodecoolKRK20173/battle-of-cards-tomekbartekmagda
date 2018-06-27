@@ -4,18 +4,14 @@ public abstract class Player implements Comparable<Player> {
 
     private String name;
     private Hand hand;
-    private boolean wonLastRound;
+
+    public Player(String name) {
+        this.name = name;
+        hand = new Hand();
+    }
 
     public String getName() {
         return name;
-    }
-
-    public boolean getWonLastRound() {
-        return wonLastRound;
-    }
-
-    public void setWonLastRound(boolean won) {
-        wonLastRound = won;
     }
 
     public int getHandSize() {
@@ -49,6 +45,6 @@ public abstract class Player implements Comparable<Player> {
 
     @Override
     public int compareTo(Player otherPlayer) {
-        return this.getHandSize().compareTo(otherPlayer.getHandSize());
+        return new Integer(this.getHandSize()).compareTo(new Integer(otherPlayer.getHandSize()));
     }
 }
