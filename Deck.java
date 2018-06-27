@@ -6,11 +6,11 @@ import java.io.FileReader;
 
 public class Deck{
     private ArrayList<Animal> deck;
-    private final String FILENAME = "animals.csv";
+    
 
-    public Deck(){
+    public Deck(String filename){
         deck = new ArrayList<Animal>();
-        loadCardsFromFile(FILENAME);
+        loadCardsFromFile(filename);
     }
 
     private void loadCardsFromFile(String fileName) {
