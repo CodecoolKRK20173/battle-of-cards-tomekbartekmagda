@@ -39,7 +39,9 @@ public class Deck{
     public Animal dealCard(){
         Random rand = new Random();
         int cardIndex = rand.nextInt(deck.size()-1);
-        return deck.get(cardIndex);
+        Animal card = deck.get(cardIndex);
+        deck.remove(cardIndex);
+        return card;
     }
 
 }
