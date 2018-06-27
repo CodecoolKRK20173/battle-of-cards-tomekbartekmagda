@@ -41,13 +41,14 @@ public class Dealer {
 
             this.printer.printTable(this.table.getTable(), this.players);
             int winnerIndex = table.compareCards(stat);
-            this.printer.printPlayer(this.players.get(winnerIndex), "This round is won by: ");
-            this.inputGetter.getStringFromUser("Press 'Enter' to continue.");
-
+            
             if (winnerIndex >= 0) {
+                this.printer.printPlayer(this.players.get(winnerIndex), "This round is won by: ");
                 this.lastRoundWinnerIndex = winnerIndex;
                 sendCardsFromTableToWinner();
             }
+
+            this.inputGetter.getStringFromUser("Press 'Enter' to continue.");
 
             gameIsOver = checkIfGameIsOver();
         }
