@@ -8,6 +8,7 @@ public class Dealer {
     private Deck deck;
     private Table table;
     private Printer printer;
+    private InputGetter inputGetter;
     private int nrOfCards;
     private int lastRoundWinnerIndex;
 
@@ -17,6 +18,7 @@ public class Dealer {
         this.deck = new Deck(fileName);
         this.table = new Table();
         this.printer = new Printer();
+        this.inputGetter = new InputGetter();
         this.nrOfCards = nrOfCards;
         this.lastRoundWinnerIndex = new Random().nextInt(players.size());
 
@@ -38,7 +40,7 @@ public class Dealer {
             this.printer.printTable(this.table.getTable());
             int winnerIndex = table.compareCards(stat);
             // TODO: print winning player
-            // TODO: wait for enter
+            this.inputGetter.getStringFromUser("Press 'Enter' to continue.");
 
             if (winnerIndex >= 0) {
                 this.lastRoundWinnerIndex = winnerIndex;
