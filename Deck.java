@@ -15,7 +15,8 @@ public class Deck{
     }
 
     private void loadCardsFromFile(String fileName) throws FileNotFoundException {
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        try {
             addCardsFromFile(br);
         } catch (IOException e) {
             e.printStackTrace();
@@ -23,7 +24,7 @@ public class Deck{
         }
     }
 
-    private void addCardsFromFile(BufferedReader fileRead) throws IOException{
+    private void addCardsFromFile(BufferedReader fileRead) throws IOException {
         String animalData;
         while ((animalData = fileRead.readLine()) != null) {
             String[] animal = animalData.split("\\|");
