@@ -35,13 +35,13 @@ public class Dealer {
 
             putPlayerCardsOnTable();
 
-            // TODO: print player that is playing
+            this.printer.printPlayer(this.players.get(this.lastRoundWinnerIndex), "This round is played by: ");
             this.printer.printCard(table.getCard(this.lastRoundWinnerIndex));
             int stat = this.players.get(this.lastRoundWinnerIndex).chooseStat();
 
             this.printer.printTable(this.table.getTable(), this.players);
             int winnerIndex = table.compareCards(stat);
-            // TODO: print winning player
+            this.printer.printPlayer(this.players.get(winnerIndex), "This round is won by: ");
             this.inputGetter.getStringFromUser("Press 'Enter' to continue.");
 
             if (winnerIndex >= 0) {

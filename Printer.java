@@ -29,4 +29,8 @@ public class Printer {
     public void printCard(Animal card) {
         System.out.println(card.toString());
     }
+
+    public void printPlayer(Player player, String message) {
+        System.out.printf("%s%s\n\n", message, player.getName());
+    }
 }
