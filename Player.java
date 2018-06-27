@@ -1,6 +1,6 @@
 import java.util.List;
 
-public abstract class Player {
+public abstract class Player implements Comparable<Player> {
 
     private String name;
     private Hand hand;
@@ -46,4 +46,9 @@ public abstract class Player {
     }
 
     public abstract int chooseStat();
+
+    @Override
+    public int compareTo(Player otherPlayer) {
+        return this.getHandSize().compareTo(otherPlayer.getHandSize());
+    }
 }
