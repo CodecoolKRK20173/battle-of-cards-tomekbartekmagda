@@ -57,6 +57,7 @@ public class Main {
     public Main() {
         players = new ArrayList<Player>();
         inputGetter = new InputGetter();
+        printer = new Printer();
         setFilename();
         getPlayerCount();
         addPlayers();
@@ -75,6 +76,6 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.dealer.playGame();
-        //main.printer.printWinner(main.getWinner());
+        main.printer.printWinner(main.getWinner());
     }
 }

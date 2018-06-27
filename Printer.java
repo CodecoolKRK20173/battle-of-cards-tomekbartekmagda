@@ -37,4 +37,8 @@ public class Printer {
     public void printPlayer(Player player, String message) {
         System.out.printf("%s%s\n\n", message, player.getName());
     }
+
+    public void printWinner(Player player) {
+        System.out.printf("The winnwer is %s, with %d cards!\n", player.getName(), player.getHandSize());
+    }
 }
