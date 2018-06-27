@@ -23,7 +23,7 @@ public class Main {
             String playerName = inputGetter.getStringFromUser("\nProvide Player name");
             players.add(new HumanPlayer(playerName));
         }
-    }  
+    }
 
     private void addCompPlayers(int humanPlayersCount) {
         for (int i = 0; i < playersCount - humanPlayersCount; i++){
@@ -31,7 +31,7 @@ public class Main {
             players.add(new CompPlayer(botName));
         }
     }
-    
+
     private void addPlayers(){
         printer.printText("\nProvide number of human players");
         int humanPlayersCount = inputGetter.getIntFromUser(0, playersCount);
@@ -63,6 +63,7 @@ public class Main {
         setFilename();
         getPlayerCount();
         addPlayers();
+        printer.printText("\nProvide number of cards for each player");
         numOfCards = inputGetter.getIntFromUser(3, 15);
         createDealer();
     }
