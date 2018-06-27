@@ -11,12 +11,14 @@ public class InputGetter {
     }
 
 
-    public String getStringFromUser() {
+    public String getStringFromUser(String text) {
+        System.out.println(text);
         return userInput.nextLine();
     }
 
 
     public int getIntFromUser(int start, int end) {
+        System.out.printf("Enter a number from %d to %d. ", start, end);
         boolean isInt = false;
         int option = 0;
         while(!isInt) {
