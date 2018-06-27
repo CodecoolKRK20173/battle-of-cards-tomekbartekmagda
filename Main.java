@@ -32,7 +32,6 @@ public class Main {
     }
     
     private void addPlayers(){
-        //getPlayerCount();
         int humanPlayersCount = inputGetter.getIntFromUser(0, playersCount);
         addHumanPlayers(humanPlayersCount);
         addCompPlayers(humanPlayersCount);
@@ -61,6 +60,7 @@ public class Main {
         setFilename();
         getPlayerCount();
         addPlayers();
+        numOfCards = inputGetter.getIntFromUser(3, 15);
         createDealer();
     }
 
