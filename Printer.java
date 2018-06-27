@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class Printer {
 
 
-    public void printTable(ArrayList<Animal> table, ArrayList<Palyer> players) {
+    public void printTable(ArrayList<Animal> table, ArrayList<Player> players) {
         String cards = "";
         for (Player player : players){
             cards += String.format("%-29s ", player.getName());
@@ -23,4 +25,8 @@ public class Printer {
         System.out.println(menu);
     }
 
+
+    public void printCard(Animal card) {
+        System.out.println(card.toString());
+    }
 }
