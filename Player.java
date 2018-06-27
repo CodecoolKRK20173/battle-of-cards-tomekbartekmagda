@@ -4,18 +4,9 @@ public abstract class Player implements Comparable<Player> {
 
     private String name;
     private Hand hand;
-    private boolean wonLastRound;
 
     public String getName() {
         return name;
-    }
-
-    public boolean getWonLastRound() {
-        return wonLastRound;
-    }
-
-    public void setWonLastRound(boolean won) {
-        wonLastRound = won;
     }
 
     public int getHandSize() {
