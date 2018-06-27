@@ -37,7 +37,7 @@ public class Dealer {
             // TODO: print player that is playing
             this.printer.printCard(table.getCard(this.lastRoundWinnerIndex));
             int stat = this.players.get(this.lastRoundWinnerIndex).chooseStat();
-            this.printer.printTable(this.table.getTable());
+            this.printer.printTable(this.table.getTable(), this.players);
             int winnerIndex = table.compareCards(stat);
             // TODO: print winning player
             this.inputGetter.getStringFromUser("Press 'Enter' to continue.");
