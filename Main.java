@@ -42,6 +42,7 @@ public class Main {
     }
 
     public Main() {
+        Printer printer = new Printer();
         setFilename();
         getPlayerCount();
         addPlayers();
