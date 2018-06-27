@@ -25,6 +25,10 @@ public class Table{
         return finalTable;
     }
     
+    public ArrayList<Animal> getTable(){
+        return table;
+    }
+
     public int compareCards(int stat){
         ArrayList<Float> valuesToCompare = new ArrayList<>();
         int searchedIndex;
