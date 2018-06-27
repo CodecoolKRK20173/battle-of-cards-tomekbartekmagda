@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,7 +13,7 @@ public class Dealer {
     private int nrOfCards;
     private int lastRoundWinnerIndex;
 
-    public Dealer(String fileName, ArrayList<Player> players, int nrOfCards) {
+    public Dealer(String fileName, ArrayList<Player> players, int nrOfCards) throws FileNotFoundException {
 
         this.players = players;
         this.deck = new Deck(fileName);
@@ -37,6 +38,7 @@ public class Dealer {
             // TODO: print player that is playing
             this.printer.printCard(table.getCard(this.lastRoundWinnerIndex));
             int stat = this.players.get(this.lastRoundWinnerIndex).chooseStat();
+
             this.printer.printTable(this.table.getTable(), this.players);
             int winnerIndex = table.compareCards(stat);
             // TODO: print winning player

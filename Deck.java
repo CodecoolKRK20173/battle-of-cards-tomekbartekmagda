@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.IOException;
@@ -8,12 +9,12 @@ public class Deck{
     private ArrayList<Animal> deck;
     
 
-    public Deck(String filename){
+    public Deck(String filename) throws FileNotFoundException {
         deck = new ArrayList<Animal>();
         loadCardsFromFile(filename);
     }
 
-    private void loadCardsFromFile(String fileName) {
+    private void loadCardsFromFile(String fileName) throws FileNotFoundException {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             addCardsFromFile(br);
         } catch (IOException e) {

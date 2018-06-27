@@ -10,10 +10,11 @@ public class Main {
     private String filename;
     public InputGetter inputGetter;
     private Printer printer;
+    private int playersCount;
 
 
     private void getPlayerCount(){
-        players = new ArrayList<Player>(inputGetter.getIntFromUser(2, 4));
+        playersCount = inputGetter.getIntFromUser(2, 4);
     }
 
     private void addHumanPlayers(int humanPlayersCount){
@@ -31,8 +32,8 @@ public class Main {
     }
     
     private void addPlayers(){
-        getPlayerCount();
-        int humanPlayersCount = inputGetter.getIntFromUser(0, players.size());
+        //getPlayerCount();
+        int humanPlayersCount = inputGetter.getIntFromUser(0, playersCount);
         addHumanPlayers(humanPlayersCount);
         addCompPlayers(humanPlayersCount);
     }
@@ -41,11 +42,21 @@ public class Main {
         try{
         dealer = new Dealer(filename, players, numOfCards);
         } catch (FileNotFoundException exception){
-            dealer = new Dealer("animals.csv", players, numOfCards);
+            dealer = null;
+        }
+
+        if (dealer == null) {
+            try {
+                dealer = new Dealer("animals.csv", players, numOfCards);
+            } catch (FileNotFoundException exception) {
+                exception.printStackTrace();
+                System.exit(0);
+            }
         }
     }
 
     public Main() {
+        players = new ArrayList<Player>();
         inputGetter = new InputGetter();
         setFilename();
         getPlayerCount();
@@ -64,6 +75,6 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.dealer.playGame();
-        main.printer.printWinner(main.getWinner());
+        //main.printer.printWinner(main.getWinner());
     }
 }
