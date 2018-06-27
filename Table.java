@@ -24,10 +24,9 @@ public class Table{
         sideTable.clear();
         return finalTable;
     }
-
+    
     public int compareCards(int stat){
         ArrayList<Float> valuesToCompare = new ArrayList<>();
-        int counter = 0;
         int searchedIndex;
         for (Animal animal : table){    
             if (stat == 1){
