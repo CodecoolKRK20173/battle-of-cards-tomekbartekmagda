@@ -5,6 +5,7 @@ public class Printer {
 
     public void printTable(ArrayList<Animal> table, ArrayList<Player> players) {
         String cards = "\n";
+
         for (Player player : players){
             cards += String.format("%-29s ", player.getName());
         }
@@ -13,9 +14,10 @@ public class Printer {
             cards += String.format("Cards in hand: %-14s ", player.getHandSize());
         }
         cards += "\n";
-        for (int i = 0; i < 8; i++){
-            for (int j = 0; j < table.size(); j++){
-                cards += table.get(j).toString().split("\n")[i];
+        final int NUM_OF_LINE_IN_CARD = 8;
+        for (int i = 0; i < NUM_OF_LINE_IN_CARD; i++){
+            for (Animal card : table){
+                cards += card.toString().split("\n")[i];
                 cards += " ";
             }
             cards += "\n";
