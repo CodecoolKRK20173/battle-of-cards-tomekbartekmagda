@@ -9,6 +9,10 @@ public class Printer {
             cards += String.format("%-29s ", player.getName());
         }
         cards += "\n";
+        for (Player player : players){
+            cards += String.format("Cards in hand: %-14s ", player.getHandSize());
+        }
+        cards += "\n";
         for (int i = 0; i < 8; i++){
             for (int j = 0; j < table.size(); j++){
                 cards += table.get(j).toString().split("\n")[i];
