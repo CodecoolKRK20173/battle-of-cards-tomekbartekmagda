@@ -12,7 +12,7 @@ public class Dealer {
     private int nrOfCards;
     private int lastRoundWinnerIndex;
 
-    public Dealer(String fileName, List<Player> players, int nrOfCards) {
+    public Dealer(String fileName, ArrayList<Player> players, int nrOfCards) {
 
         this.players = players;
         this.deck = new Deck(fileName);
@@ -35,7 +35,7 @@ public class Dealer {
             putPlayerCardsOnTable();
 
             // TODO: print player that is playing
-            this.ptinter.printCard(table.getCard(this.lastRoundWinnerIndex));
+            this.printer.printCard(table.getCard(this.lastRoundWinnerIndex));
             int stat = this.players.get(this.lastRoundWinnerIndex).chooseStat();
             this.printer.printTable(this.table.getTable());
             int winnerIndex = table.compareCards(stat);
