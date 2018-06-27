@@ -24,7 +24,7 @@ public class Table{
         sideTable.clear();
         return finalTable;
     }
-    
+
     public ArrayList<Animal> getTable(){
         return table;
     }
@@ -32,7 +32,7 @@ public class Table{
     public int compareCards(int stat){
         ArrayList<Float> valuesToCompare = new ArrayList<>();
         int searchedIndex;
-        for (Animal animal : table){    
+        for (Animal animal : table){
             if (stat == 1){
                 valuesToCompare.add(animal.getSize());
             }
@@ -46,15 +46,17 @@ public class Table{
                 valuesToCompare.add(animal.getLifeSpan());
             }
         }
-        Set<Float> uniqueValues = new HashSet<>(valuesToCompare);
-        if (uniqueValues.size()<valuesToCompare.size()){
+
+        if (valuesToCompare.indexOf(Collections.max(valuesToCompare)) !=
+        valuesToCompare.lastIndexOf(Collections.max(valuesToCompare))) {
+
             searchedIndex = -1;
             sideTable.addAll(table);
             table.clear();
         }
         else{
-            searchedIndex =valuesToCompare.indexOf(Collections.max(valuesToCompare));
-        }   
+            searchedIndex = valuesToCompare.indexOf(Collections.max(valuesToCompare));
+        }
         return searchedIndex;
     }
 
