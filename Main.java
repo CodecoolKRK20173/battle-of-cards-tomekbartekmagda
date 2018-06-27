@@ -9,25 +9,27 @@ public class Main {
     private String FILENAME;
 
     private int getPlayerCount(){
+        Printer.printMenu(menuList.get("PlayerCountInput"));
         players = new ArrayList<Player>(InputGetter.getIntFromUser(2, 4));
     }
 
     private void addHumanPlayers(int humanPlayersCount){
         for (int i = 0; i< humanPlayersCount; i++){
-            String playerName = InputGetter.getStringFromUser("Provide player name");
+            String playerName = InputGetter.getStringFromUser(menuList.get("PlayerNameInput"));
             players.add(new HumanPlayer(playerName));
         }
     }  
 
     private void addCompPlayers(int humanPlayersCount) {
         for (int i = 0; i < players.size()- humanPlayersCount; i++){
-            String botName = InputGetter.getStringFromUser("Provide bot name");
+            String botName = InputGetter.getStringFromUser("PlayerNameInput");
             players.add(new CompPlayer(botName));
         }
     }
     
     private void addPlayers(){
         getPlayerCount();
+        Printer.printMenu(menuList.get("HumanPlayerCountInput"));
         int humanPlayersCount = InputGetter.getIntFromUser(0, players.size());
         addHumanPlayers();
         addCompPlayers();
@@ -43,6 +45,7 @@ public class Main {
 
     public Main() {
         Printer printer = new Printer();
+        MenuFileReader menuList = new MenuFileReader();
         setFilename();
         getPlayerCount();
         addPlayers();
@@ -50,7 +53,7 @@ public class Main {
     }
 
     private void setFilename() {
-        FILENAME = InputGetter.getStringFromUser("Provide file with cards");
+        FILENAME = InputGetter.getStringFromUser(menuList.get("FilenameInput"));
     }
 
     private Player getWinner() {
