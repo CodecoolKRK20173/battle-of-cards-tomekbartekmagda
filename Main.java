@@ -1,38 +1,40 @@
 import java.io.FileNotFoundException;
 import java.util.Collections;
+import java.util.ArrayList;
 
 public class Main {
 
     private ArrayList<Player> players;
     private int numOfCards;
-    private Dealer dealer;
-    private String FILENAME;
+    public Dealer dealer;
+    private String filename;
+    public InputGetter inputGetter;
+    private Printer printer;
+
 
     private int getPlayerCount(){
-        Printer.printMenu(menuList.get("PlayerCountInput"));
-        players = new ArrayList<Player>(InputGetter.getIntFromUser(2, 4));
+        players = new ArrayList<Player>(inputGetter.getIntFromUser(2, 4));
     }
 
     private void addHumanPlayers(int humanPlayersCount){
         for (int i = 0; i< humanPlayersCount; i++){
-            String playerName = InputGetter.getStringFromUser(menuList.get("PlayerNameInput"));
+            String playerName = inputGetter.getStringFromUser("Provide Player name");
             players.add(new HumanPlayer(playerName));
         }
     }  
 
     private void addCompPlayers(int humanPlayersCount) {
         for (int i = 0; i < players.size()- humanPlayersCount; i++){
-            String botName = InputGetter.getStringFromUser("PlayerNameInput");
+            String botName = inputGetter.getStringFromUser("Provide bot name");
             players.add(new CompPlayer(botName));
         }
     }
     
     private void addPlayers(){
         getPlayerCount();
-        Printer.printMenu(menuList.get("HumanPlayerCountInput"));
-        int humanPlayersCount = InputGetter.getIntFromUser(0, players.size());
-        addHumanPlayers();
-        addCompPlayers();
+        int humanPlayersCount = inputGetter.getIntFromUser(0, players.size());
+        addHumanPlayers(humanPlayersCount);
+        addCompPlayers(humanPlayersCount);
     }
 
     private void createDealer() {
@@ -44,8 +46,7 @@ public class Main {
     }
 
     public Main() {
-        Printer printer = new Printer();
-        MenuFileReader menuList = new MenuFileReader();
+        inputGetter = new InputGetter();
         setFilename();
         getPlayerCount();
         addPlayers();
@@ -53,7 +54,7 @@ public class Main {
     }
 
     private void setFilename() {
-        FILENAME = InputGetter.getStringFromUser(menuList.get("FilenameInput"));
+        filename = inputGetter.getStringFromUser("Filename?");
     }
 
     private Player getWinner() {
@@ -62,7 +63,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
-        Dealer.playGame();
-        Printer.printWinner(getWinner());
+        main.dealer.playGame();
+        main.printer.printWinner(main.getWinner());
     }
 }
