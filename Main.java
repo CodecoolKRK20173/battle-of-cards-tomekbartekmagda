@@ -12,7 +12,7 @@ public class Main {
     private Printer printer;
 
 
-    private int getPlayerCount(){
+    private void getPlayerCount(){
         players = new ArrayList<Player>(inputGetter.getIntFromUser(2, 4));
     }
 
