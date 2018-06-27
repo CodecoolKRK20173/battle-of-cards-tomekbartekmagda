@@ -14,24 +14,26 @@ public class Main {
 
 
     private void getPlayerCount(){
+        printer.printText("\nProvide number of players");
         playersCount = inputGetter.getIntFromUser(2, 4);
     }
 
     private void addHumanPlayers(int humanPlayersCount){
         for (int i = 0; i< humanPlayersCount; i++){
-            String playerName = inputGetter.getStringFromUser("Provide Player name");
+            String playerName = inputGetter.getStringFromUser("\nProvide Player name");
             players.add(new HumanPlayer(playerName));
         }
     }  
 
     private void addCompPlayers(int humanPlayersCount) {
         for (int i = 0; i < playersCount - humanPlayersCount; i++){
-            String botName = inputGetter.getStringFromUser("Provide bot name");
+            String botName = inputGetter.getStringFromUser("\nProvide bot name");
             players.add(new CompPlayer(botName));
         }
     }
     
     private void addPlayers(){
+        printer.printText("\nProvide number of human players");
         int humanPlayersCount = inputGetter.getIntFromUser(0, playersCount);
         addHumanPlayers(humanPlayersCount);
         addCompPlayers(humanPlayersCount);
@@ -66,7 +68,7 @@ public class Main {
     }
 
     private void setFilename() {
-        filename = inputGetter.getStringFromUser("Filename?");
+        filename = inputGetter.getStringFromUser("Provide name of file with cards or press 'Enter' to use animal cards.");
     }
 
     private Player getWinner() {

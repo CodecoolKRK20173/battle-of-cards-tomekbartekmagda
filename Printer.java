@@ -4,7 +4,7 @@ public class Printer {
 
 
     public void printTable(ArrayList<Animal> table, ArrayList<Player> players) {
-        String cards = "";
+        String cards = "\n";
         for (Player player : players){
             cards += String.format("%-29s ", player.getName());
         }
@@ -24,9 +24,8 @@ public class Printer {
     }
 
 
-    public void printMenu() {
-        String menu = "(1) Option";
-        System.out.println(menu);
+    public void printText(String text) {
+        System.out.println(text);
     }
 
 
