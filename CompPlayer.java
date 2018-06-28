@@ -10,6 +10,8 @@ public class CompPlayer extends Player {
 
     @Override
     public int chooseStat() {
-        return new Random().nextInt(MAX_STAT_INDEX) + 1;
+        int randomNumber = new Random().nextInt(MAX_STAT_INDEX) + 1;
+        System.out.println("Chosen option: " + randomNumber);
+        return randomNumber;
     }
 }
