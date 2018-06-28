@@ -7,7 +7,7 @@ import java.io.FileReader;
 
 public class Deck{
     private ArrayList<Animal> deck;
-    
+
 
     public Deck(String filename) throws FileNotFoundException {
         deck = new ArrayList<Animal>();
@@ -25,18 +25,23 @@ public class Deck{
     }
 
     private void addCardsFromFile(BufferedReader fileRead) throws IOException {
+        final int NAME_COL = 0;
+        final int SIZE_COL = 1;
+        final int WEIGHT_COL = 2;
+        final int SPEED_COL = 3;
+        final int LIFE_SPAN_COL = 4;
         String animalData;
         while ((animalData = fileRead.readLine()) != null) {
             String[] animal = animalData.split("\\|");
-            String name = animal[0];
-            float size = Float.parseFloat(animal[1]);
-            float weight = Float.parseFloat(animal[2]);
-            float speed = Float.parseFloat(animal[3]);
-            float lifeSpan = Float.parseFloat(animal[4]);
+            String name = animal[NAME_COL];
+            float size = Float.parseFloat(animal[SIZE_COL]);
+            float weight = Float.parseFloat(animal[WEIGHT_COL]);
+            float speed = Float.parseFloat(animal[SPEED_COL]);
+            float lifeSpan = Float.parseFloat(animal[LIFE_SPAN_COL]);
             deck.add(new Animal(name, size, weight, speed, lifeSpan));
             }
         }
-    
+
     public Animal dealCard(){
         Random rand = new Random();
         int cardIndex = rand.nextInt(deck.size()-1);
